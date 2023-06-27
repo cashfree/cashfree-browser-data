@@ -1,4 +1,4 @@
-const { getBrowserData } = require('./index');
+const { getBrowserData } = require('./browser');
 
 let windowSpy = jest.SpyInstance;
 

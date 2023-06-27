@@ -1,15 +1,29 @@
 {
     "name": "cashfree-browser-data",
     "version": "0.0.1",
-    "main": "index.js",
+    "description": "Browser Information",
+    "main": "dist/browser.min.js",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "build": "webpack --config webpack.config.js"
     },
-    "jest":{
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cashfree/cashfree-browser-data.git"
+    },
+    "author": "developers@cashfree.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cashfree/cashfree-browser-data/issues"
+    },
+    "homepage": "https://github.com/cashfree/cashfree-browser-data#readme",
+    "jest": {
         "testEnvironment": "jsdom"
     },
     "devDependencies": {
-        "jest": "^29.5.0"
+        "jest": "^29.5.0",
+        "webpack": "^5.88.0",
+        "webpack-cli": "^5.1.4"
     },
     "dependencies": {
         "jest-environment-jsdom": "^29.5.0"

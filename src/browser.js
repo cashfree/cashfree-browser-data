@@ -407,7 +407,6 @@ async function getBrowserData(){
         battery_percentage: await getBatteryLevel(), //battery percentage
         gpu_renderer: getGPU(), //gpu information
     }
-    console.log(browserInfo)
     return browserInfo;
 }
 
