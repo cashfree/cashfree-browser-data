@@ -1,0 +1,17 @@
+{
+    "name": "cashfree-browser-data",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "jest":{
+        "testEnvironment": "jsdom"
+    },
+    "devDependencies": {
+        "jest": "^29.5.0"
+    },
+    "dependencies": {
+        "jest-environment-jsdom": "^29.5.0"
+    }
+}
