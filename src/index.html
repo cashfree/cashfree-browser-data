@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashfree Browser Data Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/cashfree/cashfree-browser-data@latest/dist/browser.min.js"></script>
+</head>
+<body onload="fetchData()">
+    <div class="container mt-2">
+        <h2>Cashfree Browser Data Collection SDK Demo </h2>
+        <p>The below table lists out all the information that can be fetched using our cashfree-browser-data SDK</p>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Info</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let browserData = {
+        "device_type": "Screen Information either mobile or desktop",
+        "session_id": "Hash of Browser Cookies",
+        "device_hash": "Unique Identifier for Browser",
+        "os_name": "Operating System Name",
+        "os_version": "Device Operating System Version",
+        "user_agent": "Browser User Agent Data",
+        "browser_hash": "Hash of Browser User Agent",
+        "browser_name": "Browser Application Name",
+        "private_mode": "Incognito or not",
+        "browser_version": "Browser Version",
+        "cookie_enabled": "Browser Cookies enabled or not",
+        "screen_width": "Device Screen Width",
+        "screen_height": "Device Screen Height",
+        "region_timezone": "Timezone Data",
+        "region_timezone_offset": "Timezone Offset Value",
+        "region_language": "Browser Language",
+        "installed_fonts": "Browser Installed Fonts",
+        "installed_plugins": "Browser Installed Plugins",
+        "battery_percentage": "Device Battery Percentage",
+        "gpu_renderer": "GPU Information"
+    }
+    async function fetchData(){
+        let data = await browserInfo.getBrowserData();
+        let tableBody = document.getElementById("data-table");
+        for(const key in data){
+            let tr = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            td1.appendChild(document.createTextNode(key));
+            td2.appendChild(document.createTextNode(browserData[key]));
+            td3.appendChild(document.createTextNode(data[key]));
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tableBody.appendChild(tr);
+        }
+    }
+</script>
+</html>

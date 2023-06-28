@@ -362,7 +362,7 @@ function getScreenWidth(){
 
 function getScreenHeight(){
     try{
-        return window.screen.width.toString();
+        return window.screen.height.toString();
     }catch(e){
         return "NA";
     }
