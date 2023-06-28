@@ -6,5 +6,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'), 
     filename: 'browser.min.js',
+    globalObject: "this",
+    library: {
+        name: "browserInfo",
+        type: "umd",
+    },
   },
 };

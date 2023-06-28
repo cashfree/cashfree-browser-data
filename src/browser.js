@@ -410,4 +410,4 @@ async function getBrowserData(){
     return browserInfo;
 }
 
-module.exports = {getBrowserData}
+export {getBrowserData};
