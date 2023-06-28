@@ -1,5 +1,6 @@
 
-# Cashfree Browser Data Collection SDK ![Static Badge](https://img.shields.io/badge/license-MIT-blue) ![Static Badge](https://img.shields.io/badge/release-v0.0.2-blue) ![Static Badge](https://img.shields.io/badge/test_cases-passed-brightgreen) ![Static Badge](https://img.shields.io/badge/build-stable-brightgreen) 
+# Cashfree Browser Data Collection SDK 
+![Static Badge](https://img.shields.io/badge/license-MIT-blue) ![Static Badge](https://img.shields.io/badge/release-v0.0.2-blue) ![Static Badge](https://img.shields.io/badge/test_cases-passed-brightgreen) ![Static Badge](https://img.shields.io/badge/build-stable-brightgreen) 
 
 
 The Cashfree Browser Data Collection SDK is a user-friendly solution that allows businesses to gather important data directly from users' browsers. This SDK seamlessly captures essential information about users' browsing behavior and preferences, providing businesses with valuable insights. By leveraging this browser-specific data, businesses can optimize their services, personalize user experiences, and make informed decisions based on accurate and reliable information. 
