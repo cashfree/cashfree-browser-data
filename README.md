@@ -21,8 +21,14 @@ Note: Make sure only one of the above is present in your application
 
 
 ## Implementation
+1. Using NPM package
 ```
 let data = await getBrowserData();
+```
+
+2. Using CDN URL
+```
+let data = await browserInfo.getBrowserData();
 ```
 Make sure it is invoked inside an async function
 
