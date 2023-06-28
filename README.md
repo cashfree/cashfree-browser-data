@@ -1,5 +1,7 @@
 
-# CASHFREE BROWSER DATA 
+# Cashfree Browser Data Collection SDK 
+
+The Cashfree Browser Data Collection SDK is a user-friendly solution that allows businesses to gather important data directly from users' browsers. This SDK seamlessly captures essential information about users' browsing behavior and preferences, providing businesses with valuable insights. By leveraging this browser-specific data, businesses can optimize their services, personalize user experiences, and make informed decisions based on accurate and reliable information. 
 
 ## Installation
 1. Using NPM package

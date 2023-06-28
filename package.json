@@ -11,6 +11,20 @@
         "type": "git",
         "url": "git+https://github.com/cashfree/cashfree-browser-data.git"
     },
+    "keywords": [
+        "cashfree",
+        "payment gateway",
+        "browser",
+        "risk",
+        "information",
+        "profiling",
+        "fingerprinting",
+        "security",
+        "metrics",
+        "evaluation",
+        "monitoring",
+        "mitigation"
+    ],
     "author": "developers@cashfree.com",
     "license": "MIT",
     "bugs": {
