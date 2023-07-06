@@ -387,14 +387,11 @@ function getLanguage(){
 async function getBrowserData(){
     let browserInfo = {
         device_type: getDevice(), //mobile or desktop
-        session_id: await hashDocumentCookie(), //cookie hash
         device_hash: hashDeviceInfo(), //unique identifier for browser
         os_name: getOS(), //os name
         os_version: osVersion(), //os version
         user_agent: getUserAgent(), //useragent data
-        browser_hash: await hashBrowserInfo(), //navigator hash
         browser_name: getBrowser(), //browser name
-        private_mode: await isIncognito(), //incognito or not
         browser_version: browserVersion(), //browser version
         cookie_enabled: isCookieEnabled(), //cookies enabled or not
         screen_width: getScreenWidth(), //screen width
@@ -404,8 +401,16 @@ async function getBrowserData(){
         region_language: getLanguage(), //browser language
         installed_fonts: getFonts(), //fonts
         installed_plugins: getPlugins(), //plugins
-        battery_percentage: await getBatteryLevel(), //battery percentage
-        gpu_renderer: getGPU(), //gpu information
+        gpu_renderer: getGPU()  //gpu information
+    }
+    const [session_id, browser_hash, private_mode, battery_percentage] = await Promise.all([hashDocumentCookie(), hashBrowserInfo(), isIncognito(), getBatteryLevel()]);
+
+    browserInfo = {
+        ...browserInfo,
+        session_id: session_id, //cookie hash
+        browser_hash: browser_hash, //navigator hash
+        private_mode: private_mode, //incognito or not
+        battery_percentage: battery_percentage  //battery percentage
     }
     return browserInfo;
 }
