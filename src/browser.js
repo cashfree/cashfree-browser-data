@@ -244,23 +244,31 @@ function isIncognito() {
                 }
             }else if (browserName === "GoogleChrome") {
                 if (self.Promise !== undefined && self.Promise.allSettled !== undefined) {
-                    navigator.webkitTemporaryStorage.queryUsageAndQuota(function (_, quota) {
-                        var quotaInMib = Math.round(quota / (1024 * 1024));
-                        var quotaLimit = (window.performance !== undefined && window.performance.memory !== undefined && window.performance.memory.jsHeapSizeLimit !== undefined) ? performance.memory.jsHeapSizeLimit : 1073741824;
-                        var quotaLimitInMib = Math.round(quotaLimit / (1024 * 1024)) * 2;
-                        quotaInMib < quotaLimitInMib ? resolve("true") : resolve("false");
-                    }, function (e) {
-                        resolve("NA");
-                    });
-                }else {
-                    var fs = window.webkitRequestFileSystem;
-                    var success = function () {
+                    try{
+                        navigator.webkitTemporaryStorage.queryUsageAndQuota(function (_, quota) {
+                            var quotaInMib = Math.round(quota / (1024 * 1024));
+                            var quotaLimit = (window.performance !== undefined && window.performance.memory !== undefined && window.performance.memory.jsHeapSizeLimit !== undefined) ? performance.memory.jsHeapSizeLimit : 1073741824;
+                            var quotaLimitInMib = Math.round(quotaLimit / (1024 * 1024)) * 2;
+                            quotaInMib < quotaLimitInMib ? resolve("true") : resolve("false");
+                        }, function (e) {
+                            resolve("NA");
+                        });
+                    }catch(e){
                         resolve("false");
-                    };
-                    var error = function () {
-                        resolve("true");
-                    };
-                    fs(0, 1, success, error);
+                    }
+                }else {
+                    try{    
+                        var fs = window.webkitRequestFileSystem || window.webkitRequestFileSystem;
+                        var success = function () {
+                            resolve("false");
+                        };
+                        var error = function () {
+                            resolve("true");
+                        };
+                        fs(0, 1, success, error);
+                    }catch(e){
+                        resolve("false")
+                    }
                 }
             }else if (browserName === "MozillaFirefox") {
                 navigator.serviceWorker === undefined ? resolve("true") : resolve("false");
