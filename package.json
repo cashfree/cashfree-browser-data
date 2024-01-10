@@ -1,6 +1,6 @@
 {
     "name": "@cashfreepayments/cashfree-browser-data",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Browser Information",
     "main": "dist/browser.min.js",
     "scripts": {
