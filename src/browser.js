@@ -7,12 +7,12 @@ function getOS(){
             operatingSystem = "Windows";
         } else if (/Macintosh|Mac OS X/i.test(userAgent)) {
             operatingSystem = "Mac OS";
-        } else if (/Linux/i.test(userAgent)) {
-            operatingSystem = "Linux";
         } else if (/Android/i.test(userAgent)) {
             operatingSystem = "Android";
         } else if (/iOS|iPhone|iPad|iPod/i.test(userAgent)) {
             operatingSystem = "iOS";
+        } else if (/Linux/i.test(userAgent)) {
+            operatingSystem = "Linux";
         } else {
             operatingSystem = "Unknown";
         }
@@ -291,12 +291,12 @@ function osVersion(){
             osVersion = /Windows NT (\d+\.\d+)/.exec(userAgent)[1];
         } else if (/Mac/.test(userAgent)) {
             osVersion = /Mac OS X (\d+[\._]\d+(?:[\._]\d+)?)/.exec(userAgent)[1].replace(/_/g, '.');
-        } else if (/Linux/.test(userAgent)) {
-            osVersion = "Linux";
         } else if (/Android/.test(userAgent)) {
             osVersion = /Android (\d+\.\d+)/.exec(userAgent)[1];
         } else if (/iOS/.test(userAgent)) {
             osVersion = /OS (\d+_\d+(?:_\d+)?)/.exec(userAgent)[1].replace(/_/g, '.');
+        }else if (/Linux/.test(userAgent)) {
+            osVersion = "Linux";
         } else {
             osVersion = "NA";
         }
