@@ -424,3 +424,8 @@ async function getBrowserData(){
 }
 
 export {getBrowserData};
+
+const browserInfo = {
+    getBrowserData
+};
+export default browserInfo;
