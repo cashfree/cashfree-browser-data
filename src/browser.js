@@ -154,20 +154,47 @@ async function hashDocumentCookie() {
     }
 }
 
-function hashDeviceInfo() {
-    try{
-        if(localStorage.getItem("deviceHash") === null){
-            const digits = 64;
-            const randomValues = new Uint8Array(digits);
-            crypto.getRandomValues(randomValues);
-            let randomNumber = '';
-            for (let i = 0; i < digits; i++) {
-                randomNumber += randomValues[i] % 10;
-            }
-            localStorage.setItem("deviceHash", randomNumber)
+function setCookie(cname, cvalue, exyears) {
+    const d = new Date();
+    d.setTime(d.getTime() + exyears * 365 * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + d.toUTCString();
+    document.cookie =
+        cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=Lax";
+}
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == " ") {
+            c = c.substring(1);
         }
-        return localStorage.getItem("deviceHash");
-    }catch(e){
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function hashDeviceInfo() {
+    try {
+        if (localStorage && localStorage.getItem("deviceHash") !== null) {
+            setCookie("cf_deviceHash", localStorage.getItem("deviceHash"), 30);
+            localStorage.removeItem("deviceHash");
+        } else {
+            if (getCookie("cf_deviceHash") == "") {
+                const digits = 64;
+                const randomValues = new Uint8Array(digits);
+                crypto.getRandomValues(randomValues);
+                let randomNumber = "";
+                for (let i = 0; i < digits; i++) {
+                    randomNumber += randomValues[i] % 10;
+                }
+                setCookie("cf_deviceHash", randomNumber, 30);
+            }
+        }
+        return getCookie("cf_deviceHash");
+    } catch (e) {
         return "NA";
     }
 }
