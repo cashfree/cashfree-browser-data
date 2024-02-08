@@ -23,7 +23,9 @@
         "metrics",
         "evaluation",
         "monitoring",
-        "mitigation"
+        "mitigation",
+        "browser info",
+        "browser data"
     ],
     "author": "developers@cashfree.com",
     "license": "MIT",
