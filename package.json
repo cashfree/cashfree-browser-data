@@ -1,6 +1,6 @@
 {
     "name": "@cashfreepayments/cashfree-browser-data",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Browser Information",
     "main": "dist/browser.min.js",
     "scripts": {
@@ -23,7 +23,9 @@
         "metrics",
         "evaluation",
         "monitoring",
-        "mitigation"
+        "mitigation",
+        "browser info",
+        "browser data"
     ],
     "author": "developers@cashfree.com",
     "license": "MIT",
