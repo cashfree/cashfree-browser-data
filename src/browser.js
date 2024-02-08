@@ -99,14 +99,18 @@ function getPlugins() {
 function getBatteryLevel() {
     try{
         return new Promise(function(resolve, reject) {
-            if ('getBattery' in navigator) {
-                navigator.getBattery().then(function(battery) {
-                    var batteryLevel = ((Math.round(battery.level * 100) / 100) * 100).toFixed(2);
-                    resolve(batteryLevel+"%");
-                }).catch(function(error) {
+            try{
+                if (navigator && navigator.getBattery) {
+                    navigator.getBattery().then(function(battery) {
+                        var batteryLevel = ((Math.round(battery.level * 100) / 100) * 100).toFixed(2);
+                        resolve(batteryLevel+"%");
+                    }).catch(function(error) {
+                        resolve("NA");
+                    });
+                } else {
                     resolve("NA");
-                });
-            } else {
+                }
+            }catch(e){
                 resolve("NA");
             }
         });

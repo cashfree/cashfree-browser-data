@@ -1,4 +1,4 @@
-const { getBrowserData } = require('./browser');
+const { getBrowserData } = require('../dist/browser.min.js');
 
 let windowSpy = jest.SpyInstance;
 
@@ -12,7 +12,6 @@ describe('browserDataSDK', () => {
     it('should return the browser data keys of length 20', async() => {
         windowSpy.mockImplementation(()=>({navigator}))
         const data = await getBrowserData();
-        console.log(data)
         expect(Object.keys(data).length).toBe(20);
     });
 
